@@ -18,7 +18,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Controllers
         {
             if (login == "admin" && password == "admin")
             {
-                return RedirectToAction("","Admin-Panel");
+                return RedirectToAction("","Rezerwacje");
             }
             if (login == "user" && password == "user")
             {

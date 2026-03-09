@@ -21,33 +21,31 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
         [HttpGet("")]
         public async Task<IActionResult> Index()
         {
-            var list = await _context.Rezerwacja.ToListAsync();
-            var model = new AdminPanelIndexViewModel { Rezerwacje = list };
-            return View(model);
+            return View(await _context.Rezerwacja.ToListAsync());
         }
 
         // Serve all reservations under /Admin-Panel/Rezerwacjie
-        [HttpGet("Rezerwacjie")]
+  
         public async Task<IActionResult> Rezerwacjie()
         {
             var list = await _context.Rezerwacja.ToListAsync();
-            ViewBag.AdminPanel = true;
-            return View("~/Views/Rezerwacje/Index.cshtml", list);
+
+            return View("Index", list);
         }
 
         // Serve today's reservations under /Admin-Panel/Rezerwacjie/Today
-        [HttpGet("Rezerwacjie/Today")]
-        public async Task<IActionResult> RezerwacjieToday()
+        public async Task<IActionResult> Rezerwacje11()
         {
-            var today = DateTime.Today;
-            var list = await _context.Rezerwacja
-                .Where(x => x.ReservationDate.Date == today)
+            var today_Date = DateTime.Today;
+
+            var rezerwacjeNaDzis = await _context.Rezerwacja
+                .Where(x => x.ReservationDate.Date == today_Date)
                 .ToListAsync();
-            ViewBag.AdminPanel = true;
-            return View("~/Views/Rezerwacje/Index.cshtml", list);
+
+            return View("Index", rezerwacjeNaDzis);
         }
 
-        [HttpGet("/Admin")]
+  
         public IActionResult RedirectFromAdmin() => RedirectToAction(nameof(Index));
     }
 }
