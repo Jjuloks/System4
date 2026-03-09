@@ -1,0 +1,12 @@
+﻿@model Projekt_Zarzadzanie_Rezerwacjami.ViewModels.AdminPanelIndexViewModel
+@{
+    ViewData["Title"] = "Admin-Panel";
+}
+<style>
+    hej {
+        text-align=center;
+    }
+
+</style>
+<h2 id="hej">Widaj Admin!</h2><br />
+<h2>Co chciałbyś zrobić?</h2>

@@ -1,0 +1,42 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Projekt_Zarzadzanie_Rezerwacjami.Controllers
+{
+    public class LoginController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Logowanie(string login, string password)
+        {
+            if (login == "admin" && password == "admin")
+            {
+                // przekieruj do akcji Index kontrolera Admin_Panel
+                return RedirectToAction("Index", "Admin_Panel");
+            }
+
+            if (login == "user" && password == "user")
+            {
+                // przekieruj do akcji Index kontrolera Rezerwacje
+                return RedirectToAction("Index", "Rezerwacje");
+            }
+
+            ViewBag.Error = "Niepoprawne dane logowania";
+            return View("Index");
+        }
+
+        public IActionResult Admin()
+        {
+            return View();
+        }
+
+        public IActionResult User()
+        {
+            return View();
+        }
+    }
+}

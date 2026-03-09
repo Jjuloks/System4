@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Projekt_Zarzadzanie_Rezerwacjami.Models.Rezerwacja>
+
+@{
+    ViewData["Title"] = "Rezerwacje";
+    Layout = "_Layout";
+}
+
+<h1>Rezerwacje</h1>
+
+<p>
+    <a class="btn btn-primary" asp-controller="Rezerwacje" asp-action="Create">Nowa rezerwacja</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nazwa</th>
+            <th>Data rezerwacji</th>
+            <th>Czas trwania</th>
+            <th>Rozmiar</th>
+            <th>Wyłączność</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.ReservationDate.ToString("g")</td>
+            <td>@item.Duration.ToString()</td>
+            <td>@item.Rozmiar</td>
+            <td>@(item.IsExclusive ? "Tak" : "Nie")</td>
+            <td>
+                <a class="btn btn-sm btn-secondary" asp-controller="Rezerwacje" asp-action="Details" asp-route-id="@item.Id">Szczegóły</a>
+                <a class="btn btn-sm btn-warning" asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                <a class="btn btn-sm btn-danger" asp-controller="Rezerwacje" asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

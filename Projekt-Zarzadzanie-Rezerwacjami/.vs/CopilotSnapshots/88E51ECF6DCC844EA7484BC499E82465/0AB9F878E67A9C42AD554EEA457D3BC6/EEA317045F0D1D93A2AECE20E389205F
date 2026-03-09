@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Projekt_Zarzadzanie_Rezerwacjami.Models
+{
+    // ViewModel for the Admin panel page
+    public class AdminPanelViewModel
+    {
+        // Total number of reservations
+        public int TotalReservations { get; set; }
+
+        // Number of reservations for today
+        public int TodayReservations { get; set; }
+
+        // Number of reservations marked as exclusive
+        public int ExclusiveReservations { get; set; }
+
+        // Counts per "Rozmiar" (size)
+        public Dictionary<int, int> RozmiarCounts { get; set; }
+
+        // Recent reservations to display on the admin page
+        public List<Rezerwacja> RecentReservations { get; set; }
+
+        public AdminPanelViewModel()
+        {
+            RozmiarCounts = new Dictionary<int, int>();
+            RecentReservations = new List<Rezerwacja>();
+        }
+    }
+}

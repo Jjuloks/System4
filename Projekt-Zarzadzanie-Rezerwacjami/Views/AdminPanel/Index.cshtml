@@ -1,0 +1,19 @@
+﻿@model Projekt_Zarzadzanie_Rezerwacjami.ViewModels.AdminPanelIndexViewModel
+@{
+    ViewData["Title"] = "Admin-Panel";
+}
+<style>
+    #hej {
+        text-align: center;
+    }
+
+</style>
+
+
+<h2 id="hej">Widaj Admin!</h2>
+<br />
+<h2>Co chciałbyś zrobić?</h2>
+<p>
+    <h5>Zobacz i zarządzaj rezerwacjami z dzis</h5>
+    <a asp-controller="Rezerwacje" asp-action="Rezerwacje z dzis" class="btn btn-primary">Today</a>
+</p>

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Projekt_Zarzadzanie_Rezerwacjami.Models.Rezerwacja>
+
+@{
+    ViewData["Title"] = "Admin";
+    var isAdminPanel = ViewBag.AdminPanel == true;
+}
+
+<h1 class="text-center">Witaj w panelu Admina ! Zarazdzaj rezerwacjami</h1>
+<p>
+    @if (isAdminPanel)
+    {
+        <a href="/Rezerwacje/Create">Dodaj nowa rezerwacje</a>
+    }
+    else
+    {
+        <a asp-controller="Rezerwacje" asp-action="Create">Dodaj nowa rezerwacje</a>
+    }
+</p>
+<p>
+    <h5>Today Reservations</h5>
+    @if (isAdminPanel)
+    {
+        <a href="/Admin-Panel/Rezerwacjie/Today" class="btn btn-primary">Today</a>
+    }
+    else
+    {
+        <a asp-controller="Rezerwacje" asp-action="Today" class="btn btn-primary">Today</a>
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rozmiar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsExclusive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReservationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rozmiar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsExclusive)
+            </td>
+            <td>
+                <a asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-controller="Rezerwacje" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Rezerwacje" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
