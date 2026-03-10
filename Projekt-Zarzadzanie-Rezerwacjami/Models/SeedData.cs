@@ -21,29 +21,21 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models;
                {
                    Name = "Jan Kowalski",
                    ReservationDate = DateTime.Parse("2026-03-10 17:00"),
-                   Duration = DateTime.Parse("02:00"),
                    Rozmiar = 4,
                    Sala = Sala.S01,
-                   IsExclusive = false
+                   IsExclusive = false,
+                   Duration = Duration.duration3,
                },
                 new Rezerwacja
                 {
                     Name = "Anna Nowak",
                     ReservationDate = DateTime.Parse("2026-03-10 19:30"),
-                    Duration = DateTime.Parse("01:30"),
                     Rozmiar = 2,
                     Sala = Sala.S02,
-                    IsExclusive = true
-                },
-                new Rezerwacja
-                {
-                    Name = "Piotr Wiśnki",
-                    ReservationDate = DateTime.Parse("2026-03-11 18:00"),
-                    Duration = DateTime.Parse("03:00"),
-                    Rozmiar = 6,
-                    Sala = Sala.S03,
-                    IsExclusive = false
+                    IsExclusive = true,
+                    Duration = Duration.duration2,
                 }
+               
                 
             );
                 context.SaveChanges();
