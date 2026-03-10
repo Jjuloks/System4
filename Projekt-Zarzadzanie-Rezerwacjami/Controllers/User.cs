@@ -19,12 +19,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult LogOut1()
-        {
-            return RedirectToAction("", "Login");
-        }
-
+      
         // GET: UserController1/Details/5
         public ActionResult Details(int id)
         {
