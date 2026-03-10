@@ -1,6 +1,0 @@
-﻿@page
-@model Projekt_Zarzadzanie_Rezerwacjami.Views.AdminPanel.IndexModel
-@{
-    ViewData["Title"] = "Admin-Panel";
-}
-<h1>działa?</h1>
