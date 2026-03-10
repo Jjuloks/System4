@@ -76,7 +76,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ReservationDate,Duration,Rozmiar,IsExclusive")] Rezerwacja rezerwacja)
+        public async Task<IActionResult> Create([Bind("Id,Name,ReservationDate,Duration,Rozmiar,Sala,IsExclusive")] Rezerwacja rezerwacja)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ReservationDate,Duration,Rozmiar,IsExclusive")] Rezerwacja rezerwacja)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ReservationDate,Duration,Rozmiar,Sala,IsExclusive")] Rezerwacja rezerwacja)
         {
             if (id != rezerwacja.Id)
             {

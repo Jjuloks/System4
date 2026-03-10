@@ -1,8 +1,12 @@
 ﻿using System;
+using Projekt_Zarzadzanie_Rezerwacjami.Models;
 
-public class Class1
+namespace Projekt_Zarzadzanie_Rezerwacjami.ViewModel;
+public class RezerwacjaViewMdoel
 {
-	public Class1()
-	{
+	public string selectedSala { get; set; }
+	
+
+
 	}
-}
+

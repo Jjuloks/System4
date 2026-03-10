@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Projekt_Zarzadzanie_Rezerwacjami.Models
   
 {
+
     public class NotPastDateAttribute : ValidationAttribute
     {
         public override bool IsValid(object value)
@@ -37,7 +38,22 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
         [Required]
         [Range(1, 5)]
         public int Rozmiar { get; set; }
-        [Required]
+      
+
+
+        public Sala? Sala { get; set; }
+
         public Boolean IsExclusive { get; set; }
     }
+
 }
+
+
+ public enum Sala
+{
+    S01,
+    S02,
+    S03,
+    S04
+}
+
