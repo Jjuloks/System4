@@ -37,6 +37,16 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
 
             return View("Index", rezerwacjeNaDzis);
         }
+        public async Task<IActionResult> Filter(DateTime searchDate)
+        {
+            var customDate = searchDate.Date;
+
+            var rezerwacjeCustomDate = await _context.Rezerwacja
+                .Where(x => x.ReservationDate.Date == customDate)
+                .ToListAsync();
+
+            return View("Index", rezerwacjeCustomDate);
+        }
         // GET: Rezerwacje/Details/5
         public async Task<IActionResult> Details(int? id)
         {
