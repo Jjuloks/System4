@@ -1,6 +1,7 @@
 ﻿
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace Projekt_Zarzadzanie_Rezerwacjami.Models
   
 {
@@ -34,6 +35,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
         [Required]
         [Range(1, 5)]
         public int Rozmiar { get; set; }
+        
  
         public Sala? Sala { get; set; }
 
@@ -53,7 +55,12 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
                 return ReservationDate.AddMinutes((int)Duration);
             }
         }
+
+        public int? RoomId { get; set; }
+        [ForeignKey("RoomId")]
+        public Room? Room { get; set; }
     }
+
 
 }
 

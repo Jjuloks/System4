@@ -15,5 +15,21 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
         }
 
         public DbSet<Projekt_Zarzadzanie_Rezerwacjami.Models.Rezerwacja> Rezerwacja { get; set; } = default!;
+        public DbSet<Projekt_Zarzadzanie_Rezerwacjami.Models.Room> Room { get; set; } = default!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Room>()
+                .HasKey(r => r.SalaId);
+
+            modelBuilder.Entity<Rezerwacja>()
+                .HasOne(r => r.Room)
+                .WithMany(rm => rm.Rezerwacje)
+                .HasForeignKey(r => r.RoomId)
+                .HasPrincipalKey(rm => rm.SalaId);
+        }
     }
+
 }
+

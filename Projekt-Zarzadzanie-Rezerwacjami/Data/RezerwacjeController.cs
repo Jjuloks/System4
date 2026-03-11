@@ -23,8 +23,11 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
         // GET: Rezerwacje
         public async Task<IActionResult> Index()
         {
+            var reservations = await _context.Rezerwacja
+                .Include(r => r.Room) 
+                .ToListAsync();
 
-            return View(await _context.Rezerwacja.ToListAsync());
+            return View(reservations);
         }
 
         public async Task<IActionResult> Today()
