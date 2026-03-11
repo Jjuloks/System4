@@ -27,8 +27,8 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
 
         [Required]
         [DisplayName("Reservation Date")]
-        [DataType(DataType.Date)]
-        [NotPastDate(ErrorMessage = "Date cannot be in the past.")]
+        [DataType(DataType.DateTime)]
+        [NotPastDate(ErrorMessage= "Date cannot be in the past.")]
         public DateTime ReservationDate { get; set; }
 
         
@@ -45,9 +45,24 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
         public Boolean IsExclusive { get; set; }
 
         public Duration? Duration { get; set; }
+
+
+        [DisplayName("EndReservation Date")]
+        public DateTime? EndReservationDate
+        {
+            get
+            {
+                if (Duration == null)
+                    return null;
+
+                return ReservationDate.AddMinutes((int)Duration);
+            }
+        }
     }
 
 }
+
+
 
 
  public enum Sala
@@ -61,11 +76,11 @@ public enum Duration
 {
     [Display(Name = "15 Minutes")]
     duration1 = 15,
-    [Display(Name = "30Minutes")]
+    [Display(Name = "30 Minutes")]
     duration2 = 30,
-    [Display(Name = "45Minutes")]
+    [Display(Name = "45 Minutes")]
     duration3 = 45,
-    [Display(Name = "60Minutes")]
+    [Display(Name = "60 Minutes")]
     duration4 = 60,
     [Display(Name = "75 Minutes")]
     duration5 = 75,
@@ -73,3 +88,5 @@ public enum Duration
     duration6 = 90
 
 }
+
+

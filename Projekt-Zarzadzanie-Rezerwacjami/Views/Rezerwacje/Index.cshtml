@@ -71,11 +71,13 @@
                 @Html.DisplayNameFor(model => model.Duration)
             </th>
             <th>
-              @Html.DisplayNameFor(model => model.Sala)
-            </th>
-                            
+               @Html.DisplayNameFor(model => model.EndReservationDate)
+            </th>                 
             <th>
                 @Html.DisplayNameFor(model => model.Rozmiar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sala)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsExclusive)
@@ -99,14 +101,18 @@
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
-                @Html.DisplayFor(modelItem =>item.Sala)
+                @Html.DisplayFor(modelItem => item.EndReservationDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rozmiar)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Sala)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.IsExclusive)
             </td>
+           
             <td>
                 <a asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-controller="Rezerwacje" asp-action="Details" asp-route-id="@item.Id">Details</a> |
