@@ -16,6 +16,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
             return date >= DateTime.Now;
         }
     }
+
     public class Rezerwacja
     {
         public int Id { get; set; }
@@ -30,16 +31,10 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
         [DataType(DataType.DateTime)]
         [NotPastDate(ErrorMessage= "Date cannot be in the past.")]
         public DateTime ReservationDate { get; set; }
-
-        
-        
-
         [Required]
         [Range(1, 5)]
         public int Rozmiar { get; set; }
-
-
-        
+ 
         public Sala? Sala { get; set; }
 
         public Boolean IsExclusive { get; set; }
@@ -70,7 +65,9 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
     S01,
     S02,
     S03,
-    S04
+    S04,
+    S05,
+    S06
 }
 public enum Duration
 {

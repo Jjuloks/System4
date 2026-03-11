@@ -40,6 +40,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Controllers
                 _context.Add(rezerwacja);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+                
             }
             return View(rezerwacja);
         }
