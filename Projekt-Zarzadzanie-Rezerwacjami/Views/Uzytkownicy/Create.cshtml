@@ -1,0 +1,25 @@
+﻿@model Projekt_Zarzadzanie_Rezerwacjami.Models.Uzytkownik
+
+<h2>Dodaj użytkownika</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label>Login</label>
+        <input asp-for="Login" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Hasło</label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Rola</label>
+        <select asp-for="Role" class="form-control">
+            <option value="admin">admin</option>
+            <option value="user">user</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Zapisz</button>
+</form>

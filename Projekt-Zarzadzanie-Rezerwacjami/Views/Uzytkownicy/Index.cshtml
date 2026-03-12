@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Projekt_Zarzadzanie_Rezerwacjami.Models.Uzytkownik>
+
+<h2>Użytkownicy</h2>
+
+<a asp-action="Create" class="btn btn-primary">Dodaj użytkownika</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Login</th>
+            <th>Hasło</th>
+            <th>Rola</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Login</td>
+                <td>
+                    @if (item.Role == "user")
+                    {
+                        @item.Password
+                    }
+                    else
+                    {
+                        @Html.Raw("🤫")
+                    }
+                </td>
+                <td>@item.Role</td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
