@@ -6,7 +6,7 @@
 
 <h1>Dodaj</h1>
 
-<h4>Rezerwacja</h4>
+<h4>Reservation</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label asp-for="Sala" class="control-label"></label>
                 <select asp-for="Sala" class="form-control" asp-items="@Html.GetEnumSelectList<Sala>()">
-                    <option value="">Wybierz sale</option>
+                    <option value="">Choose Room</option>
                 </select>
                 <span asp-validation-for="Rozmiar" class="text-danger"></span>
             </div>

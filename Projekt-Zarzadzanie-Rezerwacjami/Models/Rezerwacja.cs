@@ -68,9 +68,11 @@ public class ValidDateAttribute : ValidationAttribute
         public DateTime ReservationDate { get; set; }
         [Required]
         [Range(1, 5)]
+        [DisplayName("Room Size")]
         public int Rozmiar { get; set; }
 
         [Required]
+        [DisplayName("Room")]
         public Sala? Sala { get; set; }
 
         public Boolean IsExclusive { get; set; }

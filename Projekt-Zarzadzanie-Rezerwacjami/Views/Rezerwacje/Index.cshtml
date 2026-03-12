@@ -5,8 +5,8 @@
     var isAdminPanel = ViewBag.AdminPanel == true;
 }
 
-<h1 class="text-center">Panel Admina</h1>
-<a asp-controller="Uzytkownicy" asp-action="Index" class="btn btn-primary">Dodaj</a>
+<h1 class="text-center">Admin Site</h1>
+<a asp-controller="Uzytkownicy" asp-action="Index" class="btn btn-primary">Add User</a>
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
@@ -24,10 +24,10 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-center align-items-center">
-                <h5 class="card-title">Dodaj rezerwacje</h5>
+                <h5 class="card-title">Add Reservation</h5>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
-                <a asp-controller="Rezerwacje" asp-action="Create" class="btn btn-primary">Dodaj</a>
+                <a asp-controller="Rezerwacje" asp-action="Create" class="btn btn-primary">Add</a>
             </div>
         </div>
         </div>
@@ -37,20 +37,20 @@
     <a class="btn btn-primary" asp-action="SortByAsc">Sort by data ascending</a>
 </div>
 <div class="d-flex justify-content-center align-items-center">
-    <a asp-action="SortByDesc">Sort by data descending</a>
+    <a class="btn btn-primary" asp-action="SortByDesc">Sort by data descending</a>
 </div>
 <div class="col-12">
     <div class="card">
         <div class="card-body">
             <form> 
             <div class="d-flex justify-content-center align-items-center">
-            <h5>Filtruj po dacie</h5>
+            <h5>Filter by data</h5>
             </div>
             <div class="d-flex justify-content-center align-items-center">
             <input type="date" name="searchDate" required/>
             </div>
             <div class="d-flex justify-content-center align-items-center">
-            <button type="submit" class="btn btn-primary" asp-action="Filter">Filtruj</button>
+            <button type="submit" class="btn btn-primary" asp-action="Filter">Filter</button>
             </div>
             </form>
         </div>
@@ -143,26 +143,26 @@
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title" id="roomModalLabel-@item.Id">Szczegóły sali - @item.Room?.salaName</h5>
+<h5 class="modal-title" id="roomModalLabel-@item.Id">Room Details - @item.Room?.salaName</h5>
 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
 @if (item.Room != null && item.EndReservationDate !=null)
 {
-    <p><strong>Rozmiar:</strong> @item.Room.Capacity</p>
-    <p><strong>Czy ma TV:</strong> @(item.Room.HasTv ? "Tak" : "Nie")</p>
-    <p><strong>Rezerwacja wybrana przez:</strong> @item.Name</p>
-    <p><strong>Data rezerwacji:</strong> @item.ReservationDate</p>
-    <p><strong>Rezerwacja na:</strong>  @Html.DisplayFor(modelItem => item.Duration)</p>
-    <p><strong>Koniec rezerwacji:</strong> @item.EndReservationDate</p>
+    <p><strong>Room Capacity:</strong> @item.Room.Capacity</p>
+    <p><strong>Has tv :</strong> @(item.Room.HasTv ? "Yes" : "No")</p>
+    <p><strong>Reserved by</strong> @item.Name</p>
+    <p><strong>Reservation date</strong> @item.ReservationDate</p>
+    <p><strong>Duration</strong>  @Html.DisplayFor(modelItem => item.Duration)</p>
+    <p><strong>End Reservation date</strong> @item.EndReservationDate</p>
 }
 else
 {
-    <p>Brak danych sali.</p>
+    <p>No info.</p>
 }
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Zamknij</button>
+<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
 </div>
 </div>
 </div>

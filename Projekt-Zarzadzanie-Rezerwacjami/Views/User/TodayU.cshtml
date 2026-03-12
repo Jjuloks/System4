@@ -4,7 +4,7 @@
     ViewData["Title"] = "Today";
 }
 
-<h1 class="text-center">Rezerwacje z dzis</h1>
+<h1 class="text-center">Today Reservations</h1>
 
 
 @if (Model.Rezerwacje.Count > 0)
@@ -92,26 +92,26 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="roomModalLabel-@item.Id">Szczegóły sali - @item.Room?.salaName</h5>
+                                            <h5 class="modal-title" id="roomModalLabel-@item.Id">Room Details - @item.Room?.salaName</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             @if (item.Room != null && item.EndReservationDate != null)
                                             {
-                                                <p><strong>Rozmiar:</strong> @item.Room.Capacity</p>
-                                                <p><strong>Czy ma TV:</strong> @(item.Room.HasTv ? "Tak" : "Nie")</p>
-                                                <p><strong>Rezerwacja wybrana przez:</strong> @item.Name</p>
-                                                <p><strong>Data rezerwacji:</strong> @item.ReservationDate</p>
-                                                <p><strong>Rezerwacja na:</strong>  @Html.DisplayFor(modelItem => item.Duration)</p>
-                                                <p><strong>Koniec rezerwacji:</strong> @item.EndReservationDate</p>
+                                                <p><strong>Room Capacity:</strong> @item.Room.Capacity</p>
+                                                <p><strong>Has TV:</strong> @(item.Room.HasTv ? "Yes" : "No")</p>
+                                                <p><strong>Reserved by</strong> @item.Name</p>
+                                                <p><strong>Reservation date:</strong> @item.ReservationDate</p>
+                                                <p><strong>Duration</strong>  @Html.DisplayFor(modelItem => item.Duration)</p>
+                                                <p><strong>End reservation date:</strong> @item.EndReservationDate</p>
                                             }
                                             else
                                             {
-                                                <p>Brak danych sali.</p>
+                                                <p>No info about room </p>
                                             }
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Zamknij</button>
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -128,4 +128,4 @@ else
     <p>No reservations for today.</p>
 }
 
-<a asp-controller="User" asp-action="Index" class="btn btn-primary btn-lg">Powrót</a>
+<a asp-controller="User" asp-action="Index" class="btn btn-primary btn-lg">Back</a>

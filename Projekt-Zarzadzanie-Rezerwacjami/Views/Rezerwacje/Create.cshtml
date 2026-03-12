@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label asp-for="Sala" class="control-label"></label>
                 <select asp-for="Sala" class="form-control" asp-items="@Html.GetEnumSelectList<Sala>()">
-                    <option value="">Wybierz sale</option>
+                    <option value="">Choose Room</option>
                 </select>
                 <span asp-validation-for="Sala" class="text-danger"></span>
             </div>
