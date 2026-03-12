@@ -69,12 +69,12 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
 
  public enum Sala
 {
-    S01,
-    S02,
-    S03,
-    S04,
-    S05,
-    S06
+    S01 = 1,
+    S02 = 2,
+    S03 = 3,
+    S04 = 4,
+    S05 = 5,
+    S06 = 6
 }
 public enum Duration
 {

@@ -59,6 +59,24 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Sala)
                                         </td>
+                                          <td>
+                                        @if (item.Room != null)
+                                        {
+                                            <button type="button" class="btn btn-sm btn-info">
+                                                @item.Room.salaName
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info">
+                                               Rozmiar @item.Room.Capacity
+                                            </button>
+                                            <button type="button" class="btn btn-sm btn-info">
+                                                Czy ma tv @item.Room.HasTv
+</button>
+                                        }
+                                        else
+                                        {
+                                            <span>-</span>
+                                        }
+                                    </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Rozmiar)
                                         </td>

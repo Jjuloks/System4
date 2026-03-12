@@ -25,7 +25,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models;
                    Sala = Sala.S01,
                    IsExclusive = false,
                    Duration = Duration.duration3,
-                   RoomId = 1,
+                   RoomId = 0,
                },
                 new Rezerwacja
                 {
@@ -35,7 +35,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models;
                     Sala = Sala.S02,
                     IsExclusive = true,
                     Duration = Duration.duration2,
-                    RoomId = 2,
+                    RoomId = 1,
                 },
                 new Rezerwacja
                 {
@@ -45,7 +45,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models;
                     Sala = Sala.S05,
                     IsExclusive = true,
                     Duration = Duration.duration2,
-                    RoomId = 5,
+                    RoomId = 4,
                 }
 
 

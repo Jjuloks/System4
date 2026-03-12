@@ -6,7 +6,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
     {
         [Key]
         public int SalaId { get; set; }
-        public string salaName { get; set; }
+        public string? salaName { get; set; }
         public int Capacity { get; set; }
         public bool HasTv { get; set; }
 

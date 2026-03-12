@@ -91,6 +91,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
         {
             if (ModelState.IsValid)
             {
+                rezerwacja.RoomId = (int)rezerwacja.Sala - 1;
                 _context.Add(rezerwacja);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -130,6 +131,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
             {
                 try
                 {
+                    rezerwacja.RoomId = (int)rezerwacja.Sala - 1;
                     _context.Update(rezerwacja);
                     await _context.SaveChangesAsync();
                 }
