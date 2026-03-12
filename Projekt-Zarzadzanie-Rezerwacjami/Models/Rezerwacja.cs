@@ -1,4 +1,6 @@
 ﻿
+using Projekt_Zarzadzanie_Rezerwacjami.Data;
+using Projekt_Zarzadzanie_Rezerwacjami.Migrations;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,6 +19,37 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
             return date >= DateTime.Now;
         }
     }
+    
+public class ValidDateAttribute : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            var reservation = (Rezerwacja)validationContext.ObjectInstance;
+            var context = (Projekt_Zarzadzanie_RezerwacjamiContext)validationContext.GetService(typeof(Projekt_Zarzadzanie_RezerwacjamiContext));
+
+            if (reservation.Duration == null)
+            {
+                return ValidationResult.Success;
+            }
+
+            DateTime start = reservation.ReservationDate;
+            DateTime end = reservation.ReservationDate.AddMinutes((int)reservation.Duration);
+
+            bool conflict = context.Rezerwacja.Any(r =>
+                r.Sala == reservation.Sala &&
+                r.ReservationDate.Date == start.Date &&
+                start < r.ReservationDate.AddMinutes((int)r.Duration) &&
+                end > r.ReservationDate
+            );
+
+            if (conflict)
+            {
+                return new ValidationResult("This room is already reserved at this time.");
+            }
+
+            return ValidationResult.Success;
+        }
+    }
 
     public class Rezerwacja
     {
@@ -31,6 +64,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
         [DisplayName("Reservation Date")]
         [DataType(DataType.DateTime)]
         [NotPastDate(ErrorMessage= "Date cannot be in the past.")]
+        [ValidDate(ErrorMessage = "This room is already reserved during that time.")]
         public DateTime ReservationDate { get; set; }
         [Required]
         [Range(1, 5)]

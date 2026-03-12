@@ -141,12 +141,14 @@
 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-@if (item.Room != null)
+@if (item.Room != null && item.EndReservationDate !=null)
 {
     <p><strong>Rozmiar:</strong> @item.Room.Capacity</p>
     <p><strong>Czy ma TV:</strong> @(item.Room.HasTv ? "Tak" : "Nie")</p>
     <p><strong>Rezerwacja wybrana przez:</strong> @item.Name</p>
-    <p><strong>Data rezerwacji:</strong> @item.ReservationDate.ToString("yyyy-MM-dd HH:mm")</p>
+    <p><strong>Data rezerwacji:</strong> @item.ReservationDate</p>
+    <p><strong>Rezerwacja na:</strong>  @Html.DisplayFor(modelItem => item.Duration)</p>
+    <p><strong>Koniec rezerwacji:</strong> @item.EndReservationDate</p>
 }
 else
 {
@@ -154,7 +156,7 @@ else
 }
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Zamknij</button>
 </div>
 </div>
 </div>
