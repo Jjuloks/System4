@@ -69,8 +69,8 @@ public class ValidDateAttribute : ValidationAttribute
         [Required]
         [Range(1, 5)]
         public int Rozmiar { get; set; }
-        
- 
+
+        [Required]
         public Sala? Sala { get; set; }
 
         public Boolean IsExclusive { get; set; }

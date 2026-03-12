@@ -26,7 +26,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
         public async Task<IActionResult> Index()
         {
             var reservations = await _context.Rezerwacja
-                .Include(r => r.Room) 
+                .Include(r => r.Room)
                 .ToListAsync();
 
             return View(reservations);
@@ -49,6 +49,24 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
 
         }
 
+        public async Task<IActionResult> SortByAsc()
+        {
+            var reservations = await _context.Rezerwacja
+                .Include(r => r.Room).OrderBy(x => x.ReservationDate)
+                .ToListAsync();
+
+            return View("Index", reservations);
+        }
+
+
+        public async Task<IActionResult> SortByDesc()
+        {
+            var reservations = await _context.Rezerwacja
+               .Include(r => r.Room).OrderByDescending(x => x.ReservationDate)
+               .ToListAsync();
+
+            return View("Index", reservations);
+        }
        
         public async Task<IActionResult> Filter(DateTime searchDate)
         {
