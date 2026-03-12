@@ -75,6 +75,7 @@ public class ValidDateAttribute : ValidationAttribute
 
         public Boolean IsExclusive { get; set; }
 
+        [Required]
         public Duration? Duration { get; set; }
 
 
