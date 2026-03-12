@@ -18,8 +18,24 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> TodayU()
 
-      
+        {
+
+            var today_Date = DateTime.Today;
+
+            var rezerwacjeNaDzis = await _context.Rezerwacja
+
+                .Where(x => x.ReservationDate.Date == today_Date).Include(r => r.Room)
+
+                .ToListAsync();
+
+            var todayModel = new Models.TodayModel { Rezerwacje = rezerwacjeNaDzis };
+
+            return View(todayModel);
+
+        }
+
         // GET: UserController1/Details/5
         public ActionResult Details(int id)
         {

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Today";
 }
 
-<h1 class="text-center">Today</h1>
+<h1 class="text-center">Rezerwacje z dzis</h1>
 
 
 @if (Model.Rezerwacje.Count > 0)
@@ -60,28 +60,25 @@
                                             @Html.DisplayFor(modelItem => item.Sala)
                                         </td>
                                         <td>
-                                       @if (item.Room != null){
-                 <button type="button" class="btn btn-sm btn-info">@item.Room.salaName</button>
-             <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#roomModal-@item.Id">
-                <i class="fa-solid fa-circle-info"></i>ℹ️
-             </button>
-             }
-             else
-             {
-             <span>-</span>
-             }
-             </td>
+                                            @if (item.Room != null)
+                                            {
+                                                <button type="button" class="btn btn-sm btn-info">@item.Room.salaName</button>
+                                                <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#roomModal-@item.Id">
+                                                    <i class="fa-solid fa-circle-info"></i>ℹ️
+                                                </button>
+                                            }
+                                            else
+                                            {
+                                                <span>-</span>
+                                            }
+                                        </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Rozmiar)
                                         </td>
                                         <td>
                                             @Html.DisplayFor(modelItem => item.IsExclusive)
                                         </td>
-                                        <td>
-                                            <a asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                            <a asp-controller="Rezerwacje" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                            <a asp-controller="Rezerwacje" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                        </td>
+
                                     </tr>
                                 }
                             </tbody>
@@ -128,4 +125,4 @@ else
     <p>No reservations for today.</p>
 }
 
-<a asp-controller="Rezerwacje" asp-action="Index" class="btn btn-primary btn-lg">Powrót</a>
+<a asp-controller="User" asp-action="Index" class="btn btn-primary btn-lg">Powrót</a>
