@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using Projekt_Zarzadzanie_Rezerwacjami.Helpers;
 using Projekt_Zarzadzanie_Rezerwacjami.Models;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Projekt_Zarzadzanie_Rezerwacjami.Data
 {
+    [AuthorizeSession("admin")]
     public class RezerwacjeController : Controller
     {
         private readonly Projekt_Zarzadzanie_RezerwacjamiContext _context;

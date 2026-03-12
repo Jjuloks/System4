@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Projekt_Zarzadzanie_Rezerwacjami.Data;
+using Projekt_Zarzadzanie_Rezerwacjami.Helpers;
 using Projekt_Zarzadzanie_Rezerwacjami.Models;
 namespace Projekt_Zarzadzanie_Rezerwacjami.Controllers
 {
+    [AuthorizeSession("user")]
     public class User : Controller
     {
         private readonly Projekt_Zarzadzanie_RezerwacjamiContext _context;
