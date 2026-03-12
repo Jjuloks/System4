@@ -16,6 +16,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
 
         public DbSet<Projekt_Zarzadzanie_Rezerwacjami.Models.Rezerwacja> Rezerwacja { get; set; } = default!;
         public DbSet<Projekt_Zarzadzanie_Rezerwacjami.Models.Room> Room { get; set; } = default!;
+        public DbSet<Uzytkownik> Uzytkownik { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
