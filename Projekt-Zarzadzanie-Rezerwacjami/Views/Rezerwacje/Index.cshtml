@@ -106,24 +106,18 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Rozmiar)
             </td>
-                                    <td>
-                                        @if (item.Room != null)
-                                        {
-                                            <button type="button" class="btn btn-sm  btn-info">
-                                                @item.Room.salaName
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info">
-                                               Rozmiar @item.Room.Capacity
-                                            </button>
-                                            <button type="button" class="btn btn-sm btn-info">
-                                                Czy ma tv @item.Room.HasTv
-</button>
-                                        }
-                                        else
-                                        {
-                                            <span>-</span>
-                                        }
-                                    </td>
+            <td>
+             @if (item.Room != null){
+                 <button type="button" class="btn btn-sm btn-info">@item.Room.salaName</button>
+             <button type="button" class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#roomModal-@item.Id">
+                <i class="fa-solid fa-circle-info"></i>ℹ️
+             </button>
+             }
+             else
+             {
+             <span>-</span>
+             }
+             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsExclusive)
             </td>
@@ -137,6 +131,35 @@
 }
     </tbody>
 </table>
+@foreach (var item in Model)
+{
+<div class="modal fade" id="roomModal-@item.Id" tabindex="-1" aria-labelledby="roomModalLabel-@item.Id" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="roomModalLabel-@item.Id">Szczegóły sali - @item.Room?.salaName</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+@if (item.Room != null)
+{
+    <p><strong>Rozmiar:</strong> @item.Room.Capacity</p>
+    <p><strong>Czy ma TV:</strong> @(item.Room.HasTv ? "Tak" : "Nie")</p>
+    <p><strong>Rezerwacja wybrana przez:</strong> @item.Name</p>
+    <p><strong>Data rezerwacji:</strong> @item.ReservationDate.ToString("yyyy-MM-dd HH:mm")</p>
+}
+else
+{
+    <p>Brak danych sali.</p>
+}
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+</div>
+</div>
+</div>
+</div>
+}
 </div>
 </div>
 </div>
