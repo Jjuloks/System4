@@ -29,17 +29,25 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
 
             return View(reservations);
         }
-
         public async Task<IActionResult> Today()
-        {
-            var today_Date = DateTime.Today;
 
+        {
+
+            var today_Date = DateTime.Today;
+            
             var rezerwacjeNaDzis = await _context.Rezerwacja
-                .Where(x => x.ReservationDate.Date == today_Date)
+
+                .Where(x => x.ReservationDate.Date == today_Date).Include(r => r.Room)
+
                 .ToListAsync();
 
-            return View("Index", rezerwacjeNaDzis);
+            var todayModel = new Models.TodayModel { Rezerwacje = rezerwacjeNaDzis };
+
+            return View(todayModel);
+
         }
+
+       
         public async Task<IActionResult> Filter(DateTime searchDate)
         {
             var customDate = searchDate.Date;

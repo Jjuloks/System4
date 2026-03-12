@@ -1,0 +1,88 @@
+﻿@model Projekt_Zarzadzanie_Rezerwacjami.Models.TodayModel
+
+@{
+    ViewData["Title"] = "Today";
+}
+
+<h1 class="text-center">Today</h1>
+
+
+@if (Model.Rezerwacje.Count > 0)
+{
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Rezerwacje[0].Id)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Rezerwacje[0].Name)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Rezerwacje[0].ReservationDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Rezerwacje[0].Duration)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Rezerwacje[0].Sala)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Rezerwacje[0].Rozmiar)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Rezerwacje[0].IsExclusive)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Rezerwacje)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Id)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ReservationDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Duration)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Sala)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Rozmiar)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IsExclusive)
+                                        </td>
+                                        <td>
+                                            <a asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                            <a asp-controller="Rezerwacje" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                            <a asp-controller="Rezerwacje" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>No reservations for today.</p>
+}
+
+<a asp-controller="Rezerwacje" asp-action="Index" class="btn btn-primary btn-lg">Powrót</a>
