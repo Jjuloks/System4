@@ -7,12 +7,23 @@
     .card-admin-tabela {
         border-radius: 12px;
         box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
+        margin-bottom: 30px;
+        margin-top :25px;
         padding: 20px;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+    }
+
+    .page-container {
+        margin-top: 55px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
 
     .btn-table-edit {
@@ -43,8 +54,10 @@
      }
 
     .table-container {
+        margin-top: 20px;
         background-color: #f5f7fa;
         border-radius: 10px;
+        width: 100%;
     }
 
     .btn-info {
@@ -74,6 +87,7 @@
         vertical-align: middle;
     }
 </style>
+<div class="page-container"> 
 <h1 class="text-center">Today</h1>
 
 
@@ -192,3 +206,4 @@ else
 }
 
 <a asp-controller="Rezerwacje" asp-action="Index" class="btn btn-primary btn-lg">Back</a>
+</div>
