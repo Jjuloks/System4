@@ -67,7 +67,18 @@
         border : none;
         color : white;
     }
-
+    .btn-primary-close {
+        background: red;
+        color: white;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.85rem;
+        height: auto;
+        border-radius: 4px;
+    }
+    .btn-primary-close:hover {
+        background: #B91C1C;
+    }
+   
      .btn-info:hover {
          background-color: #0891B2;
      }
@@ -209,7 +220,7 @@
 <div class="modal-dialog">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title" id="roomModalLabel-@item.Id">Room Details - @item.Room?.salaName</h5>
+                            <h5 class="modal-title" id="roomModalLabel-@item.Id">@item.Room?.salaName - Room Details </h5>
 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
@@ -228,7 +239,7 @@ else
 }
 </div>
 <div class="modal-footer">
-<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary-close" data-bs-dismiss="modal">Close</button>
 </div>
 </div>
 </div>
