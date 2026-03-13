@@ -33,6 +33,26 @@
         border: none;
     }
 
+    .btn-table-edit {
+        background-color: #2563EB;
+        border: none;
+        color : white;
+        padding: 0.25rem 0.6rem; 
+        font-size: 0.85rem; 
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .btn-table-delete {
+        background: red; 
+        border: none;
+        color: white;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.85rem;
+        height: auto;
+        border-radius: 4px;
+    }
+
     .table-container {
         background-color: #f5f7fa;
         border-radius: 10px;
@@ -171,9 +191,8 @@
             </td>
            
             <td>
-                <a asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-controller="Rezerwacje" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-controller="Rezerwacje" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-table-edit">Edit</a> |
+                <a asp-controller="Rezerwacje" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-table-delete ms-2">Delete</a>
             </td>
         </tr>
 }
