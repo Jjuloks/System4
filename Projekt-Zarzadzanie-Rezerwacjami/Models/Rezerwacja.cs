@@ -115,17 +115,17 @@ public class ValidDateAttribute : ValidationAttribute
 }
 public enum Duration
 {
-    [Display(Name = "15 Minutes")]
+    [Display(Name = "15 Min")]
     duration1 = 15,
-    [Display(Name = "30 Minutes")]
+    [Display(Name = "30 Min")]
     duration2 = 30,
-    [Display(Name = "45 Minutes")]
+    [Display(Name = "45 Min")]
     duration3 = 45,
-    [Display(Name = "60 Minutes")]
+    [Display(Name = "1 h")]
     duration4 = 60,
-    [Display(Name = "75 Minutes")]
+    [Display(Name = "1h 15 min")]
     duration5 = 75,
-    [Display(Name = "90 Minutes")]
+    [Display(Name = "1h 30 min")]
     duration6 = 90
 
 }

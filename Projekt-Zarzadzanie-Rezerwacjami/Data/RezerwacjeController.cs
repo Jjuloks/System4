@@ -73,7 +73,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
             var customDate = searchDate.Date;
 
             var rezerwacjeCustomDate = await _context.Rezerwacja
-                .Where(x => x.ReservationDate.Date == customDate)
+                .Where(x => x.ReservationDate.Date == customDate).Include(r => r.Room)
                 .ToListAsync();
 
             return View("Index", rezerwacjeCustomDate);
