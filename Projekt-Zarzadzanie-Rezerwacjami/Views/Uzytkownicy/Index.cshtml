@@ -1,19 +1,83 @@
 ﻿@model IEnumerable<Projekt_Zarzadzanie_Rezerwacjami.Models.Uzytkownik>
+<style>
+    .card-admin-users-table {
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        margin-top: 25px;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+    }
 
-<h2>Użytkownicy</h2>
+    .page-container {
+        margin-top: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
-<a asp-action="Create" class="btn btn-primary">Dodaj użytkownika</a>
+    .table-container {
+        background-color: #f5f7fa;
+        border-radius: 10px;
+        width : 100%;
+    }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Login</th>
-            <th>Hasło</th>
-            <th>Rola</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
+    .btn-primary {
+        background-color: #2563EB;
+        border: none;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+    .btn-add-user {
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        margin-top : 10px;
+        margin-bottom :10px;
+    }
+
+    .btn-table-delete {
+        background: red;
+        border: none;
+        color: white;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.85rem;
+        height: auto;
+        border-radius: 4px;
+    }
+
+     .btn-table-delete:hover {
+        background: #B91C1C;
+     }
+
+    .text-end {
+        text-align: right;
+    }
+</style>
+<div class="page-container">
+<h1 class="text-center">Users</h1>
+<br />
+<a asp-action="Create" class="btn btn-primary btn-add-user" style="text-align: center;">Add User</a>
+
+    <div class="card card-admin-users-table">
+        <div class="table-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Login</th>
+                        <th>Password</th>
+                        <th>Role</th>
+                        <th></th>
+                </thead>
+                <tbody>
         @foreach (var item in Model)
         {
             <tr>
@@ -29,10 +93,17 @@
                     }
                 </td>
                 <td>@item.Role</td>
-                <td>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Usuń</a>
+                <td class="text-end">
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-table-delete">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+</div>
+</div>
+
+
+
+<a asp-controller="Rezerwacje" asp-action="Index" class="btn btn-primary btn-lg">Back</a>
+</div>

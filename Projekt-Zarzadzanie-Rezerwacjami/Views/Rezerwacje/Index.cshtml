@@ -10,8 +10,8 @@
     .card-admin {
         border-radius : 12px;
         box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-        padding: 20px;
+        margin-bottom: 15px;
+        padding: 15px;
         height: 150px; 
         display: flex;
         flex-direction: column;
@@ -40,6 +40,27 @@
         font-size: 0.85rem; 
         height: auto;
         border-radius: 4px;
+    }
+
+    .admin-header{
+        width: 100%;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        display: flex;
+        justify-content: safe center;
+        align-items: center;
+        gap : 45px;
+        flex-wrap: wrap;
+    }
+
+    .admin-header h1 {
+        margin: 0;
+        font-size: 1.8rem;
+    }
+
+    .admin-header .btn-add-user {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
     }
 
     .btn-table-edit:hover {
@@ -108,9 +129,9 @@
 
 </style>
 
-<div class="d-flex justify-content-between align-items-center mb-4">
+<div class="admin-header">
     <h1>Admin Site</h1>
-    <a asp-controller="Uzytkownicy" asp-action="Index" class="btn btn-primary">Add User</a>
+    <a asp-controller="Uzytkownicy" asp-action="Index" class="btn btn-primary btn-add-user">Add User</a>
 </div>
 <div class="row mb-3">
     <div class="col-12 col-md-6">
