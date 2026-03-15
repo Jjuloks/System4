@@ -1,15 +1,170 @@
 ﻿@model Projekt_Zarzadzanie_Rezerwacjami.Models.Rezerwacja
+<style>
+    .page-container {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
-@{
-    ViewData["Title"] = "Dodaj Rezerwacje";
-}
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
 
-<h1>Add</h1>
+    .form-container {
+        width: 100%;
+        max-width: 600px;
+        background-color: #f5f7fa;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
 
-<h4>Reservation</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+        .form-control:focus {
+            border-color: #2563EB;
+            box-shadow: 0 0 0 0.2rem rgba(38, 98, 235, 0.25);
+        }
+
+    .btn-success {
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 6px;
+        width: 100%;
+    }
+
+        .btn-success:hover {
+            background: lightgreen;
+        }
+
+    .btn-back {
+        background-color: #2563EB;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+        .btn-back:hover {
+            background-color: #1D4ED8;
+        }
+
+    .rooms-row {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+        gap: 18px;
+    }
+
+    .room-card {
+        width: 130px;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+        background: #f9fafb;
+        box-shadow: 0 4px 10px rgba(0,0,0,0,0.05);
+        text-align: left;
+    }
+
+        .room-card h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #374151;
+        }
+
+    .divider {
+        height: 1px;
+        background: #e5e7eb;
+        margin: 10px 0 12px 0;
+    }
+
+    .capacity {
+        font-size: 14px;
+        color: #4b5563;
+        margin: 10px;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 6px 10px;
+        font-size: 13px;
+        border-radius: 6px;
+        font-weight: 500;
+    }
+
+    .tv {
+        background: #22c55e;
+    }
+
+    .notv {
+        background: #e5e7eb;
+        color: #6b7280;
+    }
+
+</style>
+<h1 class="text-center">ROOM LEGEND</h1>
+<div class="rooms-row">
+    <div class="room-card">
+        <h3>S01</h3>
+        <div class="divider"></div>
+        <div class="capacity">👥 6 people</div>
+        <div class="badge tv">📺 TV</div>
+    </div>
+    <div class="room-card">
+        <h3>S02</h3>
+        <div class="divider"></div>
+        <div class="capacity">👥 8 people</div>
+        <div class="badge tv">📺 TV</div>
+    </div>
+    <div class="room-card">
+        <h3>S03</h3>
+        <div class="divider"></div>
+        <div class="capacity">👥 4 people</div>
+        <div class="badge notv">📺 No TV</div>
+    </div>
+    <div class="room-card">
+        <h3>S04</h3>
+        <div class="divider"></div>
+        <div class="capacity">👥 3 people</div>
+        <div class="badge notv">📺 No TV</div>
+    </div>
+    <div class="room-card">
+        <h3>S05</h3>
+        <div class="divider"></div>
+        <div class="capacity">👥 10 people</div>
+        <div class="badge notv">📺 No TV</div>
+    </div>
+    <div class="room-card">
+        <h3>S06</h3>
+        <div class="divider"></div>
+        <div class="capacity">👥 4 people</div>
+        <div class="badge tv">📺 TV</div>
+    </div>
+</div>
+<div class="page-container">
+    <h2>Add Reservation</h2>
+    <div class="form-container">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -30,16 +185,16 @@
                 <span asp-validation-for="Duration" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Rozmiar" class="control-label"></label>
+                <input asp-for="Rozmiar" class="form-control" />
+                <span asp-validation-for="Rozmiar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Sala" class="control-label"></label>
                 <select asp-for="Sala" class="form-control" asp-items="@Html.GetEnumSelectList<Sala>()">
                     <option value="">Choose Room</option>
                 </select>
-                <span asp-validation-for="Rozmiar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rozmiar" class="control-label"></label>
-                <input asp-for="Rozmiar" class="form-control" />
-                <span asp-validation-for="Rozmiar" class="text-danger"></span>
+                <span asp-validation-for="Sala" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -47,19 +202,14 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </form>
+        <a asp-action="Index" class="btn btn-back">Back</a>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
-

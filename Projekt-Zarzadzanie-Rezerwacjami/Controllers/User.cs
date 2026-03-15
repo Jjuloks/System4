@@ -51,10 +51,11 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ReservationDate,Duration,Rozmiar,IsExclusive")] Rezerwacja rezerwacja)
+        public async Task<IActionResult> Create([Bind("Id,Name,ReservationDate,Duration,Rozmiar,Sala,IsExclusive")] Rezerwacja rezerwacja)
         {
             if (ModelState.IsValid)
             {
+                rezerwacja.RoomId = (int)rezerwacja.Sala - 1;
                 _context.Add(rezerwacja);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

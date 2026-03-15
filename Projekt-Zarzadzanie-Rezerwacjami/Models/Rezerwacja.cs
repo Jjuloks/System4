@@ -67,7 +67,7 @@ public class ValidDateAttribute : ValidationAttribute
         [ValidDate(ErrorMessage = "This room is already reserved during that time.")]
         public DateTime ReservationDate { get; set; }
         [Required]
-        [Range(1, 5)]
+        [Range(1, 10)]
         [DisplayName("Room Size")]
         public int Rozmiar { get; set; }
 
