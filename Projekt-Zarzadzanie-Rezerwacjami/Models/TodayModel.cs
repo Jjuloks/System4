@@ -5,6 +5,6 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
 {
     public class TodayModel
     {
-        public List<Rezerwacja> Rezerwacje { get; set; }
+        public required List<Rezerwacja> Rezerwacje { get => field; set => field = value; }
     }
 }

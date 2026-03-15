@@ -19,8 +19,9 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
             return date >= DateTime.Now;
         }
     }
+   
     
-public class ValidDateAttribute : ValidationAttribute
+    public class ValidDateAttribute : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -68,6 +69,7 @@ public class ValidDateAttribute : ValidationAttribute
         public DateTime ReservationDate { get; set; }
         [Required]
         [Range(1, 10)]
+        [RoomCapacity(ErrorMessage = "Reservation size exceeds room capacity.")]
         [DisplayName("Room Size")]
         public int Rozmiar { get; set; }
 

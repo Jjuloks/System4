@@ -3,20 +3,77 @@
 @{
     ViewData["Title"] = "Today";
 }
+<style>
+    .card-admin-tabela {
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        margin-top: 25px;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 90%;
+        max-width: 1200px;
+    }
 
+    .page-container {
+        margin-top: 55px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .table-container {
+        margin-top: 20px;
+        background-color: #f5f7fa;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .btn-info {
+        background-color: #06B6D4;
+        border: none;
+        color: white;
+    }
+
+    .btn-primary-close {
+        background: red;
+        color: white;
+        padding: 0.25rem 0.6rem;
+        font-size: 0.85rem;
+        height: auto;
+        border-radius: 4px;
+    }
+
+        .btn-primary-close:hover {
+            background: #B91C1C;
+        }
+
+    .btn-info:hover {
+        background-color: #0891B2;
+    }
+
+    .table th, .table td {
+        vertical-align: middle;
+    }
+
+</style>
+
+
+<div class="page-container">
 <h1 class="text-center">Today Reservations</h1>
 
 
 @if (Model.Rezerwacje.Count > 0)
 {
-    <div class="row justify-content-center">
-        <div class="col-12">
-            <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
+        <div class="card card-admin-tabela">
+            <div class="table-container">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
                                     <th>
                                         @Html.DisplayNameFor(model => model.Rezerwacje[0].Id)
                                     </th>
@@ -79,7 +136,7 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.IsExclusive)
                                         </td>
-                                        <td></td>
+                                     
 
                                     </tr>
                                 }
@@ -111,7 +168,7 @@
                                             }
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary-close" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
@@ -119,9 +176,6 @@
                         }
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 }
 else
 {
@@ -129,3 +183,4 @@ else
 }
 
 <a asp-controller="User" asp-action="Index" class="btn btn-primary btn-lg">Back</a>
+</div>

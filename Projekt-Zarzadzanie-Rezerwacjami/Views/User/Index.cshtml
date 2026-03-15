@@ -1,4 +1,4 @@
-﻿@model Projekt_Zarzadzanie_Rezerwacjami.Models.Rezerwacja
+﻿@model Projekt_Zarzadzanie_Rezerwacjami.Models.TodayModel
 @{
     ViewData["Title"] = "Strona usera";
 }
@@ -7,8 +7,27 @@
     float: right;
     margin-top: -40px;
 }
+
+h1 {
+    margin-top : 70px;
+}
+
+.page-container {
+    margin-top: 80px;
+        border-radius : 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+        padding: 15px;
+        height: 150px; 
+        display: flex;
+        justify-items : center;
+        flex-direction: column;
+        justify-content: center;
+}
+
 </style>
 <h1 class="text-center">User site</h1>
+<div class="page-container">
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
@@ -34,5 +53,5 @@
             </div>
         </div>
     </div>
-
-
+    </div>
+    </div>

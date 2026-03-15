@@ -152,6 +152,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Data
                 try
                 {
                     rezerwacja.RoomId = (int)rezerwacja.Sala - 1;
+
                     _context.Update(rezerwacja);
                     await _context.SaveChangesAsync();
                 }
