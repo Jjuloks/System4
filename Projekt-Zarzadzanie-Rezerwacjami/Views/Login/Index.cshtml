@@ -33,6 +33,9 @@
         font-size: 1rem;
         font-weight: 500;
     }
+    .login-btn:hover {
+            background: #3ccc00;
+    }
     .login-container {
         margin-top: 90px;
     }
@@ -65,7 +68,7 @@
                 @if (ViewBag.Error != null)
                 {
                      <div class="alert alert-danger" role="alert">
-                    <p style="color:red">@ViewBag.Error</p>
+                    <p style="color:red">Invalid Data</p>
                         </div>
                 }
                    

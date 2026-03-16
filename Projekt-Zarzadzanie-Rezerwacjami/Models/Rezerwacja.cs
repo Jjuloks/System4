@@ -77,6 +77,7 @@ namespace Projekt_Zarzadzanie_Rezerwacjami.Models
         [DisplayName("Room")]
         public Sala? Sala { get; set; }
 
+        [DisplayName("Room with TV")]
         public Boolean IsExclusive { get; set; }
 
         [Required]

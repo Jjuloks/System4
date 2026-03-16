@@ -223,9 +223,11 @@
              <span>-</span>
              }
              </td>
+             @if(item.Room != null) {
             <td>
-                @Html.DisplayFor(modelItem => item.IsExclusive)
+                @Html.DisplayFor(modelItem => item.Room.HasTv)
             </td>
+             }
            
             <td>
                 <a asp-controller="Rezerwacje" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-table-edit">Edit</a> |

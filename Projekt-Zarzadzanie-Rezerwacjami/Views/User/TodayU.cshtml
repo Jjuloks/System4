@@ -115,9 +115,6 @@
                                             @Html.DisplayFor(modelItem => item.Duration)
                                         </td>
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Sala)
-                                        </td>
-                                        <td>
                                             @if (item.Room != null)
                                             {
                                                 <button type="button" class="btn btn-sm btn-info">@item.Room.salaName</button>
@@ -133,9 +130,11 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Rozmiar)
                                         </td>
+                                        @if(item.Room !=null) {
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.IsExclusive)
+                                            @Html.DisplayFor(modelItem => item.Room.HasTv)
                                         </td>
+                                        }
                                      
 
                                     </tr>
